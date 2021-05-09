@@ -1,4 +1,4 @@
-# tech-blog
+# Tech Blog
 
 ## Description
 
@@ -23,14 +23,10 @@ Step-by-step description of how to get the development environment running.
 
 Include screenshots as needed. 
 
-To add a screenshot, create an `assets/images` folder in your repository and upload your screenshot to it. Then, using the relative filepath, add it to your README using the following syntax:
-
 ```md
 ![alt text](assets/images/screenshot.png)
 ```
 
-
-# 14 Model-View-Controller (MVC): Tech Blog
 
 ## Your Task
 
