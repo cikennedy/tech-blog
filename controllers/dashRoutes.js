@@ -3,7 +3,7 @@ const { User, Post, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 
 // Prevent non logged in users from viewing the dashboard
-router.get('/dashboard', withAuth, async (req, res) => {
+router.get('/', withAuth, async (req, res) => {
   try {
     const userData = await User.findAll({
       attributes: { exclude: ['password'] },
