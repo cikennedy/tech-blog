@@ -3,7 +3,7 @@ const { User, Post, Comment } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 // Get all posts - does this need to be withAuth?
-router.get('/', withAuth, (req, res) => {
+router.get('/', (req, res) => {
     Post.findAll({
         attributes: [
             'id',
@@ -44,7 +44,7 @@ router.get('/', withAuth, (req, res) => {
 });
 
 // Get one blog post by id
-router.get('/post/:id', (req, res) => {
+router.get('/:id', (req, res) => {
     Post.findOne({
         where: {
             id: req.params.id
@@ -84,7 +84,7 @@ router.get('/post/:id', (req, res) => {
     // Return error if there is no blog post with the id given 
     .then(dbPostData => {
         if (!dbPostData) {
-            res.status(404).json({ message: 'No blog post found with the given id'});
+            res.status(404).json({ message: 'No blog post found with the given id.'});
             return;
         }
         res.json(dbPostData);
@@ -127,7 +127,7 @@ router.put('/:id', withAuth, (req, res) =>
     )
     .then(dbPostData => {
         if(!dbPostData) {
-            res.status(404).json({ message: 'No blog post found with the given id'});
+            res.status(404).json({ message: 'No blog post found with the given id.'});
             return;
         }
         res.json(dbPostData);
@@ -146,7 +146,7 @@ router.delete('/:id', withAuth, (req, res) => {
     })
     .then(dbPostData => {
         if(!dbPostData) {
-            res.status(404).json({ message: 'No blog post found with the given id'});
+            res.status(404).json({ message: 'No blog post found with the given id.'});
             return;
         }
         res.json(dbPostData);
