@@ -1,8 +1,14 @@
 <section class="single-post">
-
     <div class="post-card-content">
-         <header>{{title}}</header>
-      <p>By: {{post_content}}</p>
+      <h2 class="post-title">{{title}}</h2> 
+      <p>{{post_content}}</p>
     </div>
 
+    <div class="post-card-user-info">
+        <!-- Displays the date the blog was posted with a line break -->
+        <span class="post-date">Posted on: {{dateFormat(created_at, "dddd, mmmm dS, yyyy, h:MM:ss TT")}}</span><br>
+        <!-- Displays the user who posted the blog post -->
+        <span class="post-user">By: {{user.username}}</span> 
+        <p>{{comments.length}}</p>
+    </div>
 </section>
