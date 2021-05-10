@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { User, Post, Comment } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-// Get all posts -- remove withAuth
+// Get all posts
 
 router.get('/', async (req, res) => {
     try {

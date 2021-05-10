@@ -3,7 +3,6 @@ const { User, Post, Comment } = require('../models');
 
 // Get all blog posts
 router.get('/', (req, res) => {
-    console.log(req.session);
     Post.findAll({
         attributes: [
             'id',
