@@ -2,24 +2,58 @@ const router = require('express').Router();
 const { User, Post, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 
-// Prevent non logged in users from viewing the dashboard
-router.get('/', withAuth, async (req, res) => {
-  try {
-    const userData = await User.findAll({
-      attributes: { exclude: ['password'] },
-      order: [['name', 'ASC']],
+// Find blog posts by the user that is logged in
+router.get('/', withAuth, (req, res) => {
+    Post.findAll({
+        where: {
+            user_id: req.session.user_id
+        },
+        attributes: [
+            'id',
+            'title',
+            'post_content',
+            'created_at'
+        ],
+        include: [
+            {
+                model: Comment,
+                attributes: [
+                    'id',
+                    'comment_content',
+                    'post_id',
+                    'user_id',
+                    'created_at'
+                ],
+                include: {
+                    model: User,
+                    attributes: [
+                        'username'
+                    ]
+                }
+            },
+            {
+                model: User,
+                attributes: [
+                    'username'
+                ]
+            }
+        ]
+    })
+    .then(dbPostData => {
+        const posts = dbPostData.map(post => post.get({ plain: true }));
+        // Use dashboard template 
+        res.render('dashboard', {
+            posts,
+            email: req.session.email,
+            username: req.session.username,
+            user_id: req.session.user_id,
+            loggedIn: true
+        });
+    })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
     });
-
-    const users = userData.map((project) => project.get({ plain: true }));
-
-    res.render('dashboard', {
-      users,
-      // Pass the logged in flag to the template
-      logged_in: req.session.logged_in,
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
 });
 
 
