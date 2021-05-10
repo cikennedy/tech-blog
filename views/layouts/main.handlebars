@@ -4,25 +4,34 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>User Registry</title>
+  <title>Tech Blog</title>
   <link rel="stylesheet" href="/css/jass.css">
+  <!-- Add stylesheet here --> 
 </head>
 
 <body>
   <header class="display-flex justify-space-between align-center p-2">
     <h1>
-      User Registry
+      Tech Blog
     </h1>
     <!-- Only display the logout button if the user is logged in -->
     {{#if logged_in}}
     <nav>
-      <button class="btn" id="logout">logout</button>
+        <a href="/"><button class="btn" id="homepage">Homepage</button></a>
+        <a href="/dashboard"></a><button class="btn" id="dashboard">Dashboard</button></a>
+        <a href="/dashboard/create-blog"></a><button class="btn" id="create-blog-post">Create Blog Post</button></a>
+        <button class="btn" id="logout">Log Out</button>
+        {{else}}
+        <a href="/"><button class="btn" id="homepage">Homepage</button></a>
+        <a href="/login"></a><button class="btn" id="dashboard">Log In</button></a>
     </nav>
     {{/if}}
   </header>
+
   <main class="container container-fluid mt-5">
     {{{ body }}}
   </main>
+  
   <footer>
       
   </footer>
