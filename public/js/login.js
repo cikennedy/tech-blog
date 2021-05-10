@@ -7,13 +7,14 @@ const loginFormHandler = async (event) => {
     const password = document.querySelector('#password-login').value.trim();
   
     if (username && password) {
-      // Send the e-mail and password to the server
+      // Send the username and password to the server
       const response = await fetch('/api/users/login', {
         method: 'POST',
         body: JSON.stringify({ username, password }),
         headers: { 'Content-Type': 'application/json' },
       });
   
+      // Sends user to the dashboard if the login succeeds
       if (response.ok) {
         document.location.replace('/dashboard');
       } else {
