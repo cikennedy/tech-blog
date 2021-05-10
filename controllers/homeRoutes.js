@@ -50,6 +50,7 @@ router.get('/', (req, res) => {
     });
 });
 
+// User goes to the login/signup page if not logged in
 router.get('/login', (req, res) => {
     // If a session exists, redirect the request to the homepage
     if (req.session.logged_in) {
@@ -59,5 +60,6 @@ router.get('/login', (req, res) => {
   
     res.render('login');
   });
+
 
 module.exports = router;
