@@ -1,0 +1,17 @@
+<div class="comments">
+    {{#each this}}
+    <section class="user-comment">
+
+        <div class="user-comment-info">
+           By: {{user.username}} <br>
+           Comment Date: {{dateFormat(created_at, "dddd, mmmm dS, yyyy, h:MM:ss TT")}}
+        </div>
+   
+        <div class="comment-content">
+        {{comment_content}}
+        </div>
+
+    </section>
+    {{/each}}
+
+</div>
