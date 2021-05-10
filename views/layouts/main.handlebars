@@ -9,16 +9,16 @@
 </head>
 
 <body>
-  <header class="display-flex justify-space-between align-center p-2">
+  <header>
     <h1>
-      Tech Blog
+      The Tech Blog
     </h1>
     <!-- Only display the logout button if the user is logged in -->
-    {{#if logged_in}}
+    {{#if loggedIn}}
     <nav>
-        <a href="/"><button class="btn" id="homepage">Homepage</button></a>
-        <a href="/dashboard"></a><button class="btn" id="dashboard">Dashboard</button></a>
-        <a href="/dashboard/create-blog"></a><button class="btn" id="create-blog-post">Create Blog Post</button></a>
+        <a href="/">Homepage</a>
+        <a href="/dashboard">Dashboard</a>
+        <a href="/dashboard/create-blog">Create Blog Post</a>
         <button class="btn" id="logout">Logout</button>
         {{else}}
         <a href="/login"><button id="login">Login</button></a>
@@ -26,16 +26,18 @@
     {{/if}}
   </header>
 
-  <main class="container container-fluid mt-5">
+  <main>
     {{{body}}}
   </main>
 
   <footer>
-      
+    {{#if loggedIn}}
+      <a class="new-post-btn" href="/dashboard">+ New Post</a>
+      {{/if}}
   </footer>
 
   <!-- Only include the logout script if the user is logged in -->
-  {{#if logged_in}}
+  {{#if loggedIn}}
   <script src="/js/logout.js"></script>
   {{/if}}
 </body>

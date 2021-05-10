@@ -19,9 +19,9 @@ const signupFormHandler = async (event) => {
       // Sends user to the dashboard if the login succeeds
       if (response.ok) {
         document.location.replace('/dashboard');
-        console.log('Account Generated')
+        console.log('Account Generated.')
       } else {
-        alert('Failed to sign up');
+        alert('Failed to sign up.');
       }
     }
   };
