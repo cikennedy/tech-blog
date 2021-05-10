@@ -16,7 +16,7 @@ Post.init(
         type: DataTypes.STRING,
         allowNull: false,
     },
-    content: {
+    post_content: {
         type: DataTypes.TEXT,
         allowNull: false,
     },
@@ -30,6 +30,9 @@ Post.init(
     },
     {
     sequelize,
+    // Check to see if timestamps: true needs to be added 
+    // as the blog post's date and time need to be listed 
+    timestamps: true,
     freezeTableName: true,
     underscored: true,
     modelName: 'post',
