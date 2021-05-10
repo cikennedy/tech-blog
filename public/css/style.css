@@ -1,14 +1,4 @@
-:root {
-    --primary: #dee4b5;
-    --secondary: #21281190;
-    --tertiary: #505756;
-    --quatrinary: #6c6b67;
-    --light: #e3e4e3;
-    --dark: #182c23;
-    --error: rgb(228, 46, 1);
-    --border-radius: 0.3rem;
-  }
-  
+
 body, html {
   font-family: Arial;
   margin: 0;
@@ -17,9 +7,20 @@ body, html {
   flex-direction: column;
   height: 100%;
   justify-content: flex-start;
-  background-color: var(--secondary);
+  background-color: #21281190;
 }
 
 body {
-  background: var(--primary)
+  background: #dee4b5;
 }
+
+/* :root {
+  --primary: #dee4b5;
+  --secondary: #21281190;
+  --tertiary: #505756;
+  --quatrinary: #6c6b67;
+  --light: #e3e4e3;
+  --dark: #182c23;
+  --error: rgb(228, 46, 1);
+  --border-radius: 0.3rem;
+} */

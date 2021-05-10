@@ -21,7 +21,7 @@ const signupFormHandler = async (event) => {
         document.location.replace('/dashboard');
         console.log('Account Generated.')
       } else {
-        alert('Failed to sign up.');
+        alert(response.statusText);
       }
     }
   };
