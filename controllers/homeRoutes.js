@@ -94,9 +94,9 @@ router.get('/post/:id', (req, res) => {
         }
 
         // Use id-post handlebars template 
-        const posts = dbPostData.map(post => post.get({ plain: true }));
+        const posts = dbPostData.get({ plain: true });
         res.render('id-post', {
-            posts,
+            post,
             loggedIn: req.session.logedIn
         });
     })
