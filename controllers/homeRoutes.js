@@ -39,7 +39,7 @@ router.get('/', (req, res) => {
         const posts = dbPostData.map(post => post.get({ plain: true }));
         res.render('homepage', {
             posts,
-            loggedIn: req.session.logedIn
+            loggedIn: req.session.loggedIn
         });
     })
     .catch(err => {
@@ -97,7 +97,7 @@ router.get('/post/:id', (req, res) => {
         const posts = dbPostData.get({ plain: true });
         res.render('id-post', {
             post,
-            loggedIn: req.session.logedIn
+            loggedIn: req.session.loggedIn
         });
     })
     .catch(err => {
@@ -109,7 +109,7 @@ router.get('/post/:id', (req, res) => {
 // User goes to the login/signup page if not logged in
 router.get('/login', (req, res) => {
     // If a session exists, redirect the request to the homepage
-    if (req.session.logged_in) {
+    if (req.session.loggedIn) {
       res.redirect('/');
       return;
     }
