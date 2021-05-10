@@ -16,7 +16,7 @@ const editPostFormHandler = async (event) => {
     if (title && post_content) {
       // Send the username and password to the server
       const response = await fetch(`/api/posts/${post_id}`, {
-        method: 'PUT',
+        method: 'put',
         body: JSON.stringify({ title, post_content }),
         headers: { 'Content-Type': 'application/json' },
       });

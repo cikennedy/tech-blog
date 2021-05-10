@@ -9,7 +9,7 @@ const createPostFormHandler = async (event) => {
 
     // Send the post to the server
     const response = await fetch('/api/posts', {
-        method: 'POST',
+        method: 'post',
         body: JSON.stringify({ title, post_content }),
         headers: { 'Content-Type': 'application/json' },
       });

@@ -9,7 +9,7 @@ const deletePostFormHandler = async (event) => {
     
     // Send the post to the server
     const response = await fetch(`/api/posts/${post_id}`, {
-        method: 'DELETE',
+        method: 'delete',
       });
   
     // Replaces dashboard if post succeeds

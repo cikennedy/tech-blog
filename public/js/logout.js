@@ -1,7 +1,7 @@
-const logout = async () => {
+async function logout() {
     // Make a POST request to destroy the session on the back end
     const response = await fetch('/api/users/logout', {
-      method: 'POST',
+      method: 'post',
       headers: { 'Content-Type': 'application/json' },
     });
   
