@@ -1,7 +1,7 @@
 {
   "name": "tech-blog",
   "version": "1.0.0",
-  "description": "tech blog that allows users to post and comment on posts",
+  "description": "",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -10,9 +10,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cikennedy/tech-blog.git"
+    "url": ""
   },
-  "author": "Chris Kennedy <kennedy.christopherian@gmail.com> (https://github.com/cikennedy)",
+  "author": "",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.0.0",
@@ -22,7 +22,6 @@
     "express-handlebars": "^5.2.0",
     "express-session": "^1.17.1",
     "mysql2": "^2.2.5",
-    "sequelize": "^6.3.5",
-  "homepage": "https://github.com/cikennedy/tech-blog#readme"
-}
+    "sequelize": "^6.3.5"
+  }
 }
