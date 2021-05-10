@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { User, Post, Comment } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-// Get all blog posts
+// Get all comments
 router.get('/', (req, res) => {
     Comment.findAll({
         attributes: [
@@ -35,6 +35,31 @@ router.post('/', withAuth, (req, res) => {
         });
     }
 });
+
+// Update a comment 
+router.put('/:id', withAuth, (req, res) => 
+    Comment.update(
+        {
+            where: {
+                id: req.params.id
+            }
+        },
+        {
+            comment_content: req.body.comment_content,
+        }
+    )
+    .then(dbCommentData => {
+        if(!dbCommentData) {
+            res.status(404).json({ message: 'No comment found with the given id'});
+            return;
+        }
+        res.json(dbCommentData);
+    })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    })
+);
 
 // Delete comment with id if logged in
 router.delete('/:id', withAuth, (req, res) => {
