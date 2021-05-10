@@ -9,7 +9,7 @@ const logout = async () => {
       // If successfully logged out, redirect to the homepage 
       document.location.replace('/');
     } else {
-      alert(response.statusText);
+      alert('Failed to log out.');
     }
   };
   
