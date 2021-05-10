@@ -1,20 +1,23 @@
 <section class="post-card">
-  <!-- The contents of the post card links to the post page using the painting ID -->
-  <a href="/posts/{{id}}">
+  <!-- The contents of the post card links to the post page using the post ID -->
+  <a href="/api/posts/{{id}}">
     <!-- The card contains the post name as the card header -->
     <header>{{title}}</header>
-    <!-- In the body of the card, the content is displayed along with the artist name -->
+    <!-- 
+    In the body of the card, the content is displayed along with the
+    date posted and username of poster
+    -->
 
     <div class="post-card-content">
-      <p>By: {{post_content}}</p>
+      <p>{{post_content}}</p>
     </div>
 
     <div class="post-card-user">
         <!-- Displays the date the blog was posted with a line break -->
         <span class="post-date">Posted on: {{format_date created_at}}</span><br>
         <!-- Displays the user who posted the blog post -->
-        <span class="post-user">by {{user.username}}</span> 
-        <p>{{comments.length}} {{format_plural 'comment' comments.length}}</p>
+        <span class="post-user">By: {{user.username}}</span> 
+        <p>{{comments.length}}</p>
     </div>
   </a>
 </section>
