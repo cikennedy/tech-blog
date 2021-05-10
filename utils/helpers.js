@@ -1,7 +1,4 @@
-module.exports = {
-    format_date: date => {
-        return `${new Date(date).getMonth() + 1}
-        /${new Date(date).getDate()}
-        /${new Date(date).getFullYear()}`;
-    }
-}
+const handlebars = require('handlebars');
+handlebars.registerHelper('dateformat', require('helper-dateformat'));
+
+//npm install dateformat

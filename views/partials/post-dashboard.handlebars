@@ -1,11 +1,11 @@
-<li>
+<li class="post-dashboard">
 <!-- Displays the link to edit post by ID -->
-  <a href='/dashboard/edit/{{id}}' class='edit-post'> Edit Post</a>
+  <a href='/dashboard/edit/{{id}}' class='edit-post'>Edit Post</a>
 
   <a href='/post/{{id}}' class='dash-posts'>
     <div class='dash-posts-info'>
         <h2 class='dash-posts-title'>{{title}}</h2>
-        <span class="post-date">Posted on: {{format_date created_at}}</span>
+        <span class="post-date">Posted on: {{dateFormat(created_at, "dddd, mmmm dS, yyyy, h:MM:ss TT")}}</span>
     </div>
   </a>
 </li>
