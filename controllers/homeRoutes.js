@@ -1,22 +1,40 @@
 const router = require('express').Router();
-const { User } = require('../models');
+const sequelize = require('../confid/connection')
+const { User, Post, Comment } = require('../models');
 
-router.get('/', async (req, res) => {
-  try {
-    // Get all users, sorted by name
-    const userData = await User.findAll({
-      attributes: { exclude: ['password'] },
-      order: [['name', 'ASC']],
-    });
-
-    // Serialize user data so templates can read it
-    const users = userData.map((project) => project.get({ plain: true }));
-
-    // Pass serialized data into Handlebars.js template
-    res.render('homepage', { users });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
-
+// Get all blog posts
+router.get('/', (req, res) => {
+    console.log(req.session);
+    Post.findAll({
+        attributes: [
+            'id',
+            'title',
+            'post_content',
+            'created_at'
+        ],
+        include: [
+            {
+                model: Comment,
+                attributes: [
+                    'id',
+                    'comment_content',
+                    'post_id',
+                    'user_id',
+                    'created_at'
+                ],
+                include: {
+                    model: User,
+                    attributes: [
+                        'username'
+                    ]
+                }
+            },
+            {
+                model: User,
+                attributes: [
+                    'username'
+                ]
+            }
+        ]
+    })
 module.exports = router;
