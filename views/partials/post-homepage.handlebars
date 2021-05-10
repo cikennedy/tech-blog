@@ -13,7 +13,7 @@
 
     <div class="post-card-user-info">
         <!-- Displays the date the blog was posted with a line break -->
-        <span class="post-date">Posted on: {{dateFormat(created_at, "dddd, mmmm dS, yyyy, h:MM:ss TT")}}</span><br>
+        <span class="post-date">Posted on: {{dateFormat created_at}}</span><br>
         <!-- Displays the user who posted the blog post -->
         <span class="post-user">By: {{user.username}}</span> 
         <p>{{comments.length}}</p>
