@@ -14,10 +14,11 @@
     </form>
     {{/if}}
 
-    {{> comments post.comments}
-    
-    {{#if loggedIn}}}
-        <script src="/js/comment.js"></script>
-    {{/if}}
+    {{> comments post.comments}}
 
-</section>
+    </section>
+    
+     {{#if loggedIn}}
+        <script src="/js/comment.js"></script>
+     {{/if}}
+
