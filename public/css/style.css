@@ -97,7 +97,7 @@ input:focus {
 .login-form button, .signup-form button {
   font-size: 1.06rem;
   font-family: 'Ubuntu', sans-serif;
-  color: var(--primary);
+  color: var(--dark);
   padding: 15px;
   background: var(--tertiary);
   min-width: 20rem;
@@ -118,64 +118,87 @@ form label {
 
 /* Styling for the dashboard once logged in */
 
+.create-post h1 {
+  align-items: center;
+  color: var(--dark);
+}
+
+.create-post-form {
+  background-color: var(--secondary);
+  padding: 50px 40px;
+  border-radius: 3px;
+  box-shadow: 2px 2px 15px var(--dark);
+  min-width: 30vw;
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-items: stretch;
+  align-items: center;
+}
+
+.create-post-form label {
+  color: var(--dark);
+  font-size: 1.5rem;
+  font-family: 'Ubuntu', sans-serif;
+}
+
 .create-post-form input {
   width: 300px;
+  color: var(--dark);
+}
+
+.login-form input, .signup-form input {
+  color: var(--dark);
+  font-size: 1.06rem;
+  border: 2px solid var(--secondary);
+  padding: 15px;
+  border-radius: 3px;
+  min-width: 20rem;
 }
 
 /* Styling for your the handlebars partial of posts within the dashboard */
 
-.post-card-dashboard {
+.post-dashboard {
   display: flex;
   flex-wrap: wrap;
-  justify-content:space-between;
-  align-items:inherit;
-  color: rgb(90, 89, 89);
-  box-shadow: 0px 3px 10px #00000029;
+  flex-grow: 1;
+  justify-content: space-between;
+  align-items: inherit;
+  color: var(--secondary);
+  background-color: var(--dark);
   margin: 20px 0px;
 }
 
-.edit-link {
-  /* flex-grow: 1; */
-  background-color:rgb(87, 85, 87);
+.edit-post {
+  background-color:var(--quarternary);
   padding: 20px;
   margin: 0;
   color: white;
   transition: background-color .15s;
 }
 
-.edit-link:hover {
-  background-color:rgb(53, 49, 53);
-}
-
-.post-dashboard {
-  display: flex;
-  flex-wrap: wrap;
-  flex-grow: 1;
-  background-color: var(--secondary);
-  outline: none;
-  transition: outline .15s;
-  padding: 20px;
-  /* width: 90%; */
+.edit-post:hover {
+  color: goldenrod;
 }
 
 .post-dashboard:hover {
   outline:solid 4px goldenrod;
 }
 
-
 .dash-posts-info {
   flex-grow: 1;
-  color: var(--dark);
+  color: var(--primary);
   font-family: 'Montserrat', sans-serif;
   font-weight: 400;
+  display: flex;
+  flex-wrap: wrap;
+  outline: none;
+  padding: 20px;
 }
 
 .list-blog-posts {
   display: grid;
   place-items: center;
-}
-
-.list-blog-posts {
   padding-left: 0;
 }
 
@@ -203,7 +226,7 @@ button {
   color: var(--primary);
   font-size: .95rem;
   font-weight: bold;
-  transition: background-color .2s;
+  border: 2px solid var(--primary);
   cursor: pointer;
   border-radius: 2px;
 }
