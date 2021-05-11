@@ -118,10 +118,15 @@ form label {
 
 /* Styling for the dashboard once logged in */
 
+.create-post {
+  border: 2px solid var(--dark);
+}
+
 .create-post h1 {
   display: grid;
   place-items: center;
-  color: var(--dark);
+  color: var(--primary);
+  background-color: var(--dark);
   font-size: 24px;
 }
 
