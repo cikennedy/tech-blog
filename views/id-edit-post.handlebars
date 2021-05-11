@@ -1,0 +1,35 @@
+<section class="single-post">
+    <div class="post-card-content">
+        <a href="/dashboard" class="nav-link"> Dashboard </a>
+          <section class="edit-post">
+            <h2>Edit Post</h2>
+            <form class="edit-post-form">
+            <div>
+                <input type="text" name="post-title" value="{{post.title}}"/>
+                <textarea type="text" class="edit-textarea">{{post.post}}</textarea>
+            </div>
+            <div>
+               <a href="post/{{post.id}}" class="nav-link">{{post.comments.length}}</a>
+            </div>
+            <button type="submit" class="save-btn">Save Post</button>
+            <button type="submit" class="delete-btn">Delete Post</button>
+        </form>
+        </section>
+    </div>
+
+ <form class="comment-form">
+     <div>
+         <textarea class="comment-body"></textarea>
+     </div>
+
+     <div>
+         <button type="submit" class="comment-btn">Add Comment</button>
+     </div>
+ </form>
+
+ {{> comments post.comments}}
+</section>
+
+<script src="/js/edit-post.js"></script>
+<script src="/js/delete-post.js"></script>
+<script src="/js/comment.js"></script>

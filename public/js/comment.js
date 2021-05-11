@@ -3,7 +3,7 @@ const commentFormHandler = async (event) => {
     event.preventDefault();
   
     // Gather the data from the form elements on the page
-    const comment_content = document.querySelector(`textarea[name="comment-text"]`).value.trim();
+    const comment_content = document.querySelector(`#comment-text`).value.trim();
     
     const post_id = window.location.toString().split('/')[
         window.location.toString().split('/').length - 1
