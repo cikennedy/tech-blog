@@ -1,26 +1,217 @@
+:root {
+  --primary: #b7bfba;
+  --secondary: #e3ebdf;
+  --tertiary: #7b8383;
+  --quarternary: #919191;
+  --dark: #0c0807;
+  --border-radius: .3rem;
+}
 
-body, html {
-  font-family: Arial;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  justify-content: flex-start;
-  background-color: #21281190;
+* {
+  box-sizing: border-box;
 }
 
 body {
-  background: #dee4b5;
+  background-color: var(--primary);
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--primary);
+  line-height: 1.5;
+  font-size: 24px;
 }
 
-/* :root {
-  --primary: #dee4b5;
-  --secondary: #21281190;
-  --tertiary: #505756;
-  --quatrinary: #6c6b67;
-  --light: #e3e4e3;
-  --dark: #182c23;
-  --error: rgb(228, 46, 1);
-  --border-radius: 0.3rem;
-} */
+/* Styling for header of all pages */
+
+header {
+  background: var(--dark);
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2% 5%;
+  font-family: sans-serif;
+  font-size: 1.3rem;
+}
+
+.h1 {
+  padding: 10px;
+  border: 3px solid white;
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+/* Styling for main body of all pages */
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Styling for login page */
+
+.login-signup-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 50px;
+}
+
+.login-form, .signup-form {
+  background-color: var(--secondary);
+  padding: 50px 40px;
+  border-radius: 3px;
+  box-shadow: 2px 2px 15px var(--dark);
+  min-width: 30vw;
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-items: stretch;
+  align-items: center;
+}
+
+.login-form > div, .signup-form > div {
+  padding: 10px;
+  border-radius: 2px;
+  display: flex;
+  flex-direction: column;
+  justify-items: stretch;
+}
+
+.login-form input, .signup-form input {
+  color: var(--dark);
+  font-size: 1.06rem;
+  border: 2px solid var(--secondary);
+  padding: 15px;
+  border-radius: 3px;
+  min-width: 20rem;
+}
+
+input:focus {
+  outline: none;
+  border: 3px solid #3486eb;
+}
+
+.login-form button, .signup-form button {
+  font-size: 1.06rem;
+  font-family: 'Ubuntu', sans-serif;
+  color: var(--primary);
+  padding: 15px;
+  background: var(--tertiary);
+  min-width: 20rem;
+  transform: scale(1);
+  transition: background-image 1s, transform .5s;
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+.login-form button:hover, .signup-form button:hover {
+  background: goldenrod;
+}
+
+form label {
+  display: block;
+}
+
+/* Styling for the dashboard once logged in */
+
+.create-post-form input {
+  width: 300px;
+}
+
+/* Styling for your the handlebars partial of posts within the dashboard */
+
+.post-card-dashboard {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content:space-between;
+  align-items:inherit;
+  color: rgb(90, 89, 89);
+  box-shadow: 0px 3px 10px #00000029;
+  margin: 20px 0px;
+}
+
+.edit-link {
+  /* flex-grow: 1; */
+  background-color:rgb(87, 85, 87);
+  padding: 20px;
+  margin: 0;
+  color: white;
+  transition: background-color .15s;
+}
+
+.edit-link:hover {
+  background-color:rgb(53, 49, 53);
+}
+
+.post-dashboard {
+  display: flex;
+  flex-wrap: wrap;
+  flex-grow: 1;
+  background-color: var(--secondary);
+  outline: none;
+  transition: outline .15s;
+  padding: 20px;
+  /* width: 90%; */
+}
+
+.post-dashboard:hover {
+  outline:solid 4px goldenrod;
+}
+
+
+.dash-posts-info {
+  flex-grow: 1;
+  color: var(--dark);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+}
+
+.list-blog-posts {
+  display: grid;
+  place-items: center;
+}
+
+.list-blog-posts {
+  padding-left: 0;
+}
+
+a {
+  color: var(--dark);
+  text-decoration: none;
+  font-weight: bold;
+  transition: color .1s;
+}
+
+a:hover {
+  color: goldenrod;
+}
+
+.nav-link {
+  color: var(--secondary);
+  padding: 10px;
+  margin: 10px
+}
+
+button {
+  background-color: var(--dark);
+  border: 0;
+  padding: 12px 29px 12px 29px;
+  color: var(--primary);
+  font-size: .95rem;
+  font-weight: bold;
+  transition: background-color .2s;
+  cursor: pointer;
+  border-radius: 2px;
+}
+
+button:hover {
+  background-color: goldenrod;
+}
+
+
+
+

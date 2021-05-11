@@ -5,14 +5,14 @@
             <h2>Edit Post</h2>
             <form class="edit-post-form">
             <div>
-                <input type="text" name="post-title" value="{{post.title}}"/>
-                <textarea type="text" class="edit-textarea">{{post.post}}</textarea>
+                <input type="text" id="post-title-input" value="{{post.title}}"/>
+                <textarea type="text" id="edit-textarea">{{post.post}}</textarea>
             </div>
             <div>
                <a href="post/{{post.id}}" class="nav-link">{{post.comments.length}}</a>
             </div>
-            <button type="submit" class="save-btn">Save Post</button>
-            <button type="submit" class="delete-btn">Delete Post</button>
+            <button type="submit" class="btn save-btn">Save Post</button>
+            <button type="submit" class="btn delete-btn">Delete Post</button>
         </form>
         </section>
     </div>
@@ -23,7 +23,7 @@
      </div>
 
      <div>
-         <button type="submit" class="comment-btn">Add Comment</button>
+         <button type="submit" class="btn comment-btn">Add Comment</button>
      </div>
  </form>
 

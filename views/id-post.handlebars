@@ -1,0 +1,23 @@
+<section class="single-post">
+
+    {{> post-single post}}
+
+    {{#if loggedIn}}
+    <form class="comment-form">
+        <div>
+            <textarea id="comment-body" placeholder="Enter Comment"></textarea>
+        </div>
+
+        <div>
+            <button type="submit">Post Comment</button>
+        </div>
+    </form>
+    {{/if}}
+
+    {{> comments post.comments}
+    
+    {{#if loggedIn}}}
+        <script src="/js/comment.js"></script>
+    {{/if}}
+
+</section>

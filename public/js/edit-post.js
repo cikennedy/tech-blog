@@ -4,8 +4,8 @@ const editPostFormHandler = async (event) => {
   
     // Gather the data from the form elements on the page
 
-    const title = document.querySelector(`input[name="post-title"]`).value.trim();
-    const post_content = document.querySelector(`textarea[name="post-text"]`).value.trim();
+    const title = document.querySelector(`#post-title-input`).value.trim();
+    const post_content = document.querySelector(`#edit-textarea`).value.trim();
 
     console.log(title, post_content);
 
@@ -14,14 +14,12 @@ const editPostFormHandler = async (event) => {
     ];
     
     if (title && post_content) {
-      // Send the username and password to the server
       const response = await fetch(`/api/posts/${post_id}`, {
-        method: 'put',
+        method: 'PUT',
         body: JSON.stringify({ title, post_content }),
         headers: { 'Content-Type': 'application/json' },
       });
   
-      // Sends user to the dashboard if the login succeeds
       if (response.ok) {
         document.location.replace('/dashboard');
       } else {
