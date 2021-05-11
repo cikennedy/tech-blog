@@ -3,13 +3,13 @@ const createPostFormHandler = async (event) => {
     event.preventDefault();
   
     // Gather the data from the form elements on the page
-    const title = document.querySelector(`input[name="post-title"]`).value.trim();
-    const post_content = document.querySelector(`textarea[name="post-text"]`).value.trim();
+    const title = document.querySelector(`#post-title`).value.trim();
+    const post_content = document.querySelector(`#post-content`).value.trim();
     
 
     // Send the post to the server
     const response = await fetch('/api/posts', {
-        method: 'post',
+        method: 'POST',
         body: JSON.stringify({ title, post_content }),
         headers: { 'Content-Type': 'application/json' },
       });
