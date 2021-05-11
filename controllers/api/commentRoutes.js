@@ -20,7 +20,7 @@ router.get('/', (req, res) => {
     });
 });
 
-// Post comment if logged in 
+// Post comment 
 router.post('/', withAuth, (req, res) => {
     if (req.session) {
         Comment.create({
@@ -61,7 +61,7 @@ router.put('/:id', withAuth, (req, res) =>
     })
 );
 
-// Delete comment with id if logged in
+// Delete comment with id 
 router.delete('/:id', withAuth, (req, res) => {
     Comment.destroy({
         where: {
