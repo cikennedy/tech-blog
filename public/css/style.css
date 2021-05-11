@@ -119,8 +119,10 @@ form label {
 /* Styling for the dashboard once logged in */
 
 .create-post h1 {
-  align-items: center;
+  display: grid;
+  place-items: center;
   color: var(--dark);
+  font-size: 24px;
 }
 
 .create-post-form {
@@ -175,6 +177,7 @@ form label {
   margin: 0;
   color: white;
   transition: background-color .15s;
+  border: solid 4px var(--primary);
 }
 
 .edit-post:hover {
@@ -192,8 +195,23 @@ form label {
   font-weight: 400;
   display: flex;
   flex-wrap: wrap;
-  outline: none;
+  justify-content: space-between;
+  align-items: center;
   padding: 20px;
+}
+
+.dash-posts-title, .post-date {
+  font-size: 20px;
+  padding: 20px;
+}
+
+
+
+.list-blog-posts h1 {
+  display: grid;
+  place-items: center;
+  color: var(--dark);
+  font-size: 24px;
 }
 
 .list-blog-posts {
