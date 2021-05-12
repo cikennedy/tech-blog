@@ -253,6 +253,49 @@ button:hover {
   background-color: goldenrod;
 }
 
+.post-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  margin: 80px 40px;
+  list-style: none;
+}
+
+.post-card {
+  display: grid;
+  grid-template-columns: 300px;
+  grid-template-rows: 150px 150px;
+  grid-template-areas: "text" "user" "comments";
+  text-align: left;
+  margin: 20px;
+  text-decoration: none;
+  background-color: var(--dark);
+  color: var(--secondary);
+}
+
+.post-card-content {
+  grid-area: text;
+  overflow: hidden;
+  font-size: 1rem;
+  font-family: sans-serif;
+}
+
+.post-card-content h2 {
+  font-weight: 500;
+}
+
+.post-date {
+  font-weight: lighter;
+}
+
+.post-user {
+  grid-area: user;
+  padding: 10px 10px;
+}
+
+
+
 
 
 

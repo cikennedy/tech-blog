@@ -1,9 +1,11 @@
 const router = require('express').Router();
+const sequelize = require('../../config/connection');
 const { User, Post, Comment } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-// Get all posts - does this need to be withAuth?
+// Get all posts 
 router.get('/', (req, res) => {
+    // Same as home route, but returning data as json 
     Post.findAll({
         attributes: [
             'id',
@@ -12,6 +14,12 @@ router.get('/', (req, res) => {
             'created_at'
         ],
         include: [
+            {
+                model: User,
+                attributes: [
+                    'username'
+                ]
+            },
             {
                 model: Comment,
                 attributes: [
@@ -27,12 +35,6 @@ router.get('/', (req, res) => {
                         'username'
                     ]
                 }
-            },
-            {
-                model: User,
-                attributes: [
-                    'username'
-                ]
             }
         ]
     })
@@ -45,6 +47,7 @@ router.get('/', (req, res) => {
 
 // Get one blog post by id
 router.get('/:id', (req, res) => {
+    // Same as home route, but returning as json
     Post.findOne({
         where: {
             id: req.params.id
@@ -56,6 +59,12 @@ router.get('/:id', (req, res) => {
             'created_at'
         ],
         include: [
+            {
+                model: User,
+                attributes: [
+                    'username'
+                ]
+            },
             {
                 model: Comment,
                 attributes: [
@@ -71,12 +80,6 @@ router.get('/:id', (req, res) => {
                         'username'
                     ]
                 }
-            },
-            {
-                model: User,
-                attributes: [
-                    'username'
-                ]
             }
         ]
     })
@@ -97,23 +100,22 @@ router.get('/:id', (req, res) => {
 
 // Create new blog post 
 router.post('/', withAuth, (req, res) => {
-    // check to see if req.session is required in the following line 
-    if (req.session) {
-        Post.create({
-            title: req.body.title,
-            post_content: req.body.post_content,
-            user_id: req.session.user_id
-        })
-        .then(dbPostData => res.json(dbPostData))
-        .catch(err => {
-            console.log(err);
-            res.status(400).json(err);
-        });
-    }
+    // Creates a post with the title, content, and user id
+    Post.create({
+        title: req.body.title,
+        post_content: req.body.post_content,
+        user_id: req.session.user_id
+    })
+    .then(dbPostData => res.json(dbPostData))
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    });
 });
 
-// Update a post
+// Update a blog post by id
 router.put('/:id', withAuth, (req, res) => 
+    // User can update the title and blog post content as long as logged in
     Post.update(
         {
             where: {
@@ -138,6 +140,7 @@ router.put('/:id', withAuth, (req, res) =>
     })
 );
 
+// Delete a blog post by id 
 router.delete('/:id', withAuth, (req, res) => {
     Post.destroy({
         where: {

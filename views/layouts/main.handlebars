@@ -10,24 +10,20 @@
 
 <body>
  <header>
-   {{#if loggedIn}}
-   <h1 class="header-title">The Tech Blog - Dashboard</h1>
-   {{else}}
    <h1 class="header-title">The Tech Blog</h1>
-   {{/if}}
     <!-- Only display the logout button if the user is logged in -->
     {{#if loggedIn}}
-    <nav class="topnav" id="myTopnav">
+    <div class="topnav" id="myTopnav">
         <a href="/"><button>Home</button></a>
         <a href="/dashboard"><button>Dashboard</button></a>
-        <button class="btn" id="logout">Logout</button>
+        <button class="logout">Logout</button>
         {{else}}
         <!-- Links for if the user is not logged in. Clicking on the dashboard will
         redirect to the login page as -->
         <a href="/"><button>Home</button></a>
         <a href="/login"><button>Dashboard</button></a>
         <a href="/login"><button id="login">Log In</button></a>
-    </nav>
+    </div>
     {{/if}}
     
   </header>
@@ -35,12 +31,6 @@
   <main>
     {{{body}}}
   </main>
-
-  <footer>
-    {{#if loggedOut}}
-      <a class="new-post-btn" href="/dashboard/login">+ New Post</a>
-      {{/if}}
-  </footer>
 
   <!-- Only include the logout script if the user is logged in -->
   {{#if loggedIn}}

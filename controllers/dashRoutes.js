@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const sequelize = require('../config/connection');
 const { User, Post, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 
@@ -30,12 +31,6 @@ router.get('/', withAuth, (req, res) => {
                         'username'
                     ]
                 }
-            },
-            {
-                model: User,
-                attributes: [
-                    'username'
-                ]
             }
         ]
     })
@@ -57,7 +52,7 @@ router.get('/', withAuth, (req, res) => {
 });
 
 
-// Find selected blog post by the user that is logged in in order to edit
+// Edit blog post by selecting the id of the blog post 
 router.get('/edit/:id', withAuth, (req, res) => {
     Post.findOne({
         where: {
@@ -94,14 +89,15 @@ router.get('/edit/:id', withAuth, (req, res) => {
             }
         ]
     })
+    // Error if no blog post exists with the id 
     .then(dbPostData => {
         if (!dbPostData) {
-            res.status(404).json({ message: 'No blog post found with the given id'});
+            res.status(404).json({ message: 'No blog post found with the given id.'});
             return;
         }
 
         // Use id-post handlebars template 
-        const posts = dbPostData.get({ plain: true });
+        const post = dbPostData.get({ plain: true });
         res.render('id-edit-post', {
             post,
             loggedIn: true
