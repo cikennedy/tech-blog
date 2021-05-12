@@ -117,14 +117,14 @@ router.put('/:id', withAuth, (req, res) =>
     // User can update the title and blog post content as long as logged in
     Post.update(
         {
+            title: req.body.title,
+            post_content: req.body.post_content,
+        },
+        {
             where: {
                 id: req.params.id
             }
         },
-        {
-            title: req.body.title,
-            post_content: req.body.post_content,
-        }
     )
     .then(dbPostData => {
         if(!dbPostData) {

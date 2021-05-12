@@ -166,7 +166,6 @@ form label {
 .post-dashboard {
   display: flex;
   flex-wrap: wrap;
-  flex-grow: 1;
   justify-content: space-between;
   align-items: inherit;
   color: var(--secondary);
@@ -178,9 +177,10 @@ form label {
   background-color:var(--quarternary);
   padding: 20px;
   margin: 0;
-  color: white;
+  align-items: center;
+  color: var(--secondary);
   transition: background-color .15s;
-  border: solid 4px var(--primary);
+  border: solid 4px blueviolet;
 }
 
 .edit-post:hover {
@@ -188,7 +188,7 @@ form label {
 }
 
 .post-dashboard:hover {
-  outline:solid 4px goldenrod;
+  outline:solid 4px blueviolet;
 }
 
 .dash-posts-info {
@@ -253,6 +253,12 @@ button:hover {
   background-color: goldenrod;
 }
 
+.single-post {
+  color: var(--secondary);
+  background-color: var(--dark);
+  margin: 20px 0px;
+}
+
 .post-list {
   display: flex;
   flex-wrap: wrap;
@@ -293,6 +299,8 @@ button:hover {
   grid-area: user;
   padding: 10px 10px;
 }
+
+
 
 
 
