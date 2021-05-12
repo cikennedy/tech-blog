@@ -4,8 +4,9 @@
 
 This application is a CMS-style blog that features blogs on the home page that features blogs posted on the site by its users. Users can post, edit, delete, and comment on in order to share useful information about technology with one another. 
 
-[GitHub Repository](https://github.com/cikennedy/tech-blog)
-[Deployed Tech Blog](https://salty-castle-29275.herokuapp.com/)
+* [GitHub Repository](https://github.com/cikennedy/tech-blog)
+
+* [Deployed Tech Blog](https://salty-castle-29275.herokuapp.com/)
 
 ## Table of Contents
 
@@ -32,27 +33,27 @@ This application primarily utilizes the following technologies:
 
 
 ```md
-![Home Page](assets/homepage.png)
+![Home Page](assets/Homepage.png)
 
 ```
 
 ```md
-![Log In](assets/login.png)
+![Log In](assets/Login.png)
 
 ```
 
 ```md
-![Sign Up](assets/signup.png)
+![Sign Up](assets/Signup.png)
 
 ```
 
 ```md
-![Dashboard Blogs](assets/dashboard-blogs.png)
+![Dashboard Blogs](assets/Dashboard-Blogs.png)
 
 ```
 
 ```md
-![Create-Post](assets/create-post.png)
+![Create-Post](assets/Create-Post.png)
 
 ```
 
