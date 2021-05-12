@@ -5,6 +5,7 @@ const withAuth = require('../../utils/auth');
 
 // Get all comments
 router.get('/', (req, res) => {
+    // Find all comments and return as json 
     Comment.findAll({
         attributes: [
             'id',
@@ -23,6 +24,7 @@ router.get('/', (req, res) => {
 
 // Post comment 
 router.post('/', withAuth, (req, res) => {
+    // create comment if the session exists 
     if (req.session) {
         Comment.create({
             comment_content: req.body.comment_content,
@@ -37,7 +39,7 @@ router.post('/', withAuth, (req, res) => {
     }
 });
 
-// Update a comment 
+// Update a comment with id 
 router.put('/:id', withAuth, (req, res) => 
     Comment.update(
         {
@@ -51,7 +53,7 @@ router.put('/:id', withAuth, (req, res) =>
     )
     .then(dbCommentData => {
         if(!dbCommentData) {
-            res.status(404).json({ message: 'No comment found with the given id'});
+            res.status(404).json({ message: 'No comment found with the given id.'});
             return;
         }
         res.json(dbCommentData);
@@ -71,7 +73,7 @@ router.delete('/:id', withAuth, (req, res) => {
     })
     .then(dbCommentData => {
         if(!dbCommentData) {
-            res.status(404).json({ message: 'No comment found with the given id'});
+            res.status(404).json({ message: 'No comment found with the given id.'});
             return;
         }
         res.json(dbCommentData);
