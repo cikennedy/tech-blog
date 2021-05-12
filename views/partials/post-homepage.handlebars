@@ -10,9 +10,9 @@
 
     <div class="post-card-user-info">
         <!-- Displays the date the blog was posted with a line break -->
-        <span class="post-date">Posted on: {{dateFormat created_at}}</span><br>
+        <div class="post-date">Posted on: {{dateFormat created_at}}</div><br>
         <!-- Displays the user who posted the blog post -->
-        <span class="post-user">By: {{user.username}}</span> 
-        <p>{{comments.length}}</p>
+        <div class="post-user">By: {{user.username}}</div> 
+        <p>Comments: {{comments.length}}</p>
     </div>
   </a>
