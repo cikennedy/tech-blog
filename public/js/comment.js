@@ -17,7 +17,7 @@ const commentFormHandler = async (event) => {
         headers: { 'Content-Type': 'application/json' },
       });
   
-      // Sends user to the dashboard if the login succeeds
+      //
       if (response.ok) {
         document.location.reload();
       } else {

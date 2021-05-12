@@ -1,7 +1,6 @@
 const router = require('express').Router();
-const sequelize = require('../config/connection');
 const { User, Post, Comment } = require('../models');
-const withAuth = require('../utils/auth');
+const withAuth = require('../utils/auth')
 
 // Find blog posts by the user that is logged in
 router.get('/', withAuth, (req, res) => {
@@ -27,21 +26,16 @@ router.get('/', withAuth, (req, res) => {
                 ],
                 include: {
                     model: User,
-                    attributes: [
-                        'username'
-                    ]
+                    attributes: ['username']
                 }
             }
         ]
     })
     .then(dbPostData => {
+        // Create an array for the posts and pass the posts to the dashboard handlebars template
         const posts = dbPostData.map(post => post.get({ plain: true }));
-        // Use dashboard template 
         res.render('dashboard', {
             posts,
-            email: req.session.email,
-            username: req.session.username,
-            user_id: req.session.user_id,
             loggedIn: true
         });
     })

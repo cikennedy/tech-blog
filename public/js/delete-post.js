@@ -12,7 +12,7 @@ const deletePostFormHandler = async (event) => {
         method: 'delete',
       });
   
-    // Replaces dashboard if post succeeds
+    // Replaces dashboard if delete succeeds
     if (response.ok) {
         document.location.replace('/dashboard');
     } else {
