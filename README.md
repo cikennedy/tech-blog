@@ -32,30 +32,17 @@ This application primarily utilizes the following technologies:
 * dotenv
 
 
-```md
+
 ![Home Page](assets/Homepage.png)
 
-```
-
-```md
 ![Log In](assets/Login.png)
 
-```
-
-```md
 ![Sign Up](assets/Signup.png)
 
-```
-
-```md
 ![Dashboard Blogs](assets/Dashboard-Blogs.png)
 
-```
-
-```md
 ![Create-Post](assets/Create-Post.png)
 
-```
 
 ## Questions
 
